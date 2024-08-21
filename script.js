@@ -42,7 +42,7 @@ if (isNaN(totalCompra) || totalCompra < 3) {
     let totalFinal;
 
     if (totalCompra > 100) {
-        totalFinal = totalCompra * 10;
+        totalFinal = totalCompra * 0.9;
         console.log(`El total con descuento es: ${totalFinal.toFixed(2)}`);
     } else {
         totalFinal = totalCompra;
@@ -181,3 +181,27 @@ if (hora >= 6 && hora < 12) {
 } else {
     alert("Hora no válida. Por favor, ingresa un número entre 0 y 23.");
 }
+
+//Ejercicio 15:
+function calcularIMC(peso, altura) {
+    let imc = peso / (altura * altura);
+    return imc;
+}
+
+function clasificarIMC(imc) {
+    if (imc < 18.5) {
+        return "Bajo peso";
+    } else if (imc >= 18.5 && imc <= 24.9) {
+        return "Peso normal";
+    } else if (imc >= 25 && imc <= 29.9) {
+        return "Sobrepeso";
+    } else {
+        return "Obesidad";
+    }
+}
+let peso = parseFloat(prompt("Ingrese su peso en kilogramos (kg):"));
+let altura = parseFloat(prompt("Ingrese su altura en metros (m):"));
+
+let imc = calcularIMC(peso, altura);
+let clasificacion = clasificarIMC(imc);
+alert("Tu IMC es " + imc.toFixed(2) + " y corresponde a la categoría: " + clasificacion);
